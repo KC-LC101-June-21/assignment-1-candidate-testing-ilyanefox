@@ -40,9 +40,9 @@ function askQuestion() {
 //  candidateAnswers[i] = input.question(questions[i]); 
 //  }
 for (let i = 0; i < questions.length; i++){
-  // candidateAnswers[i] = input.question([i + 1] + ")" + " " +  questions[i]);
-
-  candidateAnswers[i] = input.question(`${[i + 1]}) ${questions[i]}`)
+ 
+candidateAnswers[i] = input.question(`${[i + 1]}) ${questions[i]}`)
+  
   console.log(`Your Answer: ${candidateAnswers[i]}\nCorrect Answer: ${correctAnswers[i]}`);
   console.log("\n");
 
@@ -67,8 +67,13 @@ for (let i = 0; i < questions.length; i ++) {
 
 let grade = (correctCount)/(questions.length) * 100;
 
-console.log(`>>> Overall Grade: ${grade}% (${correctCount} out of ${questions.length} responses correct) <<<`);
+console.log(`>>> Overall Grade: ${grade}% (${correctCount} of ${questions.length} responses correct) <<<`);
 
+if (grade >= 80){
+    console.log(`>>> Status: PASSED <<<`)
+      } else {
+        console.log(">>> Status: FAILED <<<")
+      }
   return grade;
 
 }
@@ -82,14 +87,11 @@ let candidateName = input.question("Candidate Name: ");
  
 
   askQuestion();
-  let finalGrade = gradeQuiz(this.candidateAnswers);
+ gradeQuiz(this.candidateAnswers);
 
 
- if (finalGrade >= 80){
-    console.log(`>>> Status: PASSED <<<`)
-      } else {
-        console.log(">>> Status: FAILED <<<")
-    }
+ 
+    
 }
 
 
