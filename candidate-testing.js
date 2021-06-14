@@ -69,11 +69,7 @@ let grade = (correctCount)/(questions.length) * 100;
 
 console.log(`>>> Overall Grade: ${grade}% (${correctCount} of ${questions.length} responses correct) <<<`);
 
-if (grade >= 80){
-    console.log(`>>> Status: PASSED <<<`)
-      } else {
-        console.log(">>> Status: FAILED <<<")
-    }
+
   return grade;
 
 }
@@ -87,9 +83,13 @@ let candidateName = input.question("Candidate Name: ");
  
 
   askQuestion();
- gradeQuiz(this.candidateAnswers);
+ let finalGrade = gradeQuiz(this.candidateAnswers);
 
- 
+ if (finalGrade >= 80){
+    console.log(`>>> Status: PASSED <<<`)
+      } else {
+        console.log(">>> Status: FAILED <<<")
+      }
 }
 
 // Don't write any code below this line //
