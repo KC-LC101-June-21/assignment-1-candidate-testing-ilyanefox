@@ -11,7 +11,7 @@ let question = "Who was the first American woman in space? "
 
 let correctAnswer = "Sally Ride";
 let candidateAnswer = "";
-let questions = ["1) Who was the first American woman in space? ", "2) True or false: 5000 meters = 5 kilometers. ", "3) (5 + 3)/2 * 10 = ? ", '4) Given the array [8, "Orbit", "Trajectory", 45], what entry is at index 2? ', "5) What is the minimum crew size for the ISS? "];
+let questions = ["Who was the first American woman in space? ", "True or false: 5000 meters = 5 kilometers. ", "(5 + 3)/2 * 10 = ? ", 'Given the array [8, "Orbit", "Trajectory", 45], what entry is at index 2? ', "What is the minimum crew size for the ISS? "];
 let correctAnswers = ["Sally Ride", "true", "40", "Trajectory", "3"];
 let candidateAnswers = [];
 
@@ -36,12 +36,10 @@ function askQuestion() {
 
 // candidateAnswer = input.question(question); 
 
-//  for (let i = 0; i < questions.length; i++){
-//  candidateAnswers[i] = input.question(questions[i]); 
-//  }
+
 for (let i = 0; i < questions.length; i++){
  
-candidateAnswers[i] = input.question(questions[i]);
+candidateAnswers[i] = input.question(`${[i + 1]}) ${questions[i]}`);
   
   console.log(`Your Answer: ${candidateAnswers[i]}\nCorrect Answer: ${correctAnswers[i]}`);
   console.log("\n");
@@ -69,7 +67,11 @@ let grade = (correctCount)/(questions.length) * 100;
 
 console.log(`>>> Overall Grade: ${grade}% (${correctCount} of ${questions.length} responses correct) <<<`);
 
-
+ if (grade >= 80){
+    console.log(`>>> Status: PASSED <<<`)
+      } else {
+        console.log(">>> Status: FAILED <<<")
+      }
   return grade;
 
 }
@@ -83,13 +85,9 @@ let candidateName = input.question("Candidate Name: ");
  
 
   askQuestion();
- let finalGrade = gradeQuiz(this.candidateAnswers);
+ gradeQuiz(this.candidateAnswers);
 
- if (finalGrade >= 80){
-    console.log(`>>> Status: PASSED <<<`)
-      } else {
-        console.log(">>> Status: FAILED <<<")
-      }
+ 
 }
 
 // Don't write any code below this line //
