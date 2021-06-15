@@ -57,7 +57,7 @@ function gradeQuiz() {
 
 let correctCount = 0
 for (let i = 0; i < questions.length; i ++) {
-  if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()) {
+  if (candidateAnswers[i].toUpperCase() === correctAnswers[i].toUpperCase()) {
     correctCount += 1;
   } 
 }
